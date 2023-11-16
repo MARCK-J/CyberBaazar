@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-import java.sql.Timestamp;
-
 @Entity
 @Table(name = "Usuarios")
 public class UsuarioDTO {
@@ -23,10 +21,10 @@ public class UsuarioDTO {
     private String correoElectronico;
 
     // Constructores, getters y setters
-    public UsuarioEntity() {
+    public UsuarioDTO() {
     }
 
-    public UsuarioEntity(Integer usuarioId, String nombre, String correoElectronico) {
+    public UsuarioDTO(Integer usuarioId, String nombre, String correoElectronico) {
         this.usuarioId = usuarioId;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
