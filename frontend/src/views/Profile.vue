@@ -14,11 +14,43 @@
       </div>
     </div>
 
+    <h1>Productos Guardados</h1>
+
     <div class="row">
-      <highlightjs language="json" :code="JSON.stringify(user, null, 2)" />
+      <div class="scrollable-items">
+        <!-- Add more items for testing scrollbar -->
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+        <div class="item">Item 11</div>
+        <div class="item">Item 12</div>
+        <!-- Add more items as needed -->
+      </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.scrollable-items {
+  display: flex;
+  overflow-x: auto;
+}
+
+.item {
+  /* Add styling for your items */
+  min-width: 100px; /* Adjust as needed */
+  border: 1px solid #ccc;
+  margin-right: 10px; /* Adjust spacing between items */
+  padding: 10px;
+}
+</style>
 
 <script lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue';
@@ -30,8 +62,9 @@ export default {
     
     return {
       user: auth0.user,
-    }
-  }
+    };
+  },
 };
 </script>
+
 
