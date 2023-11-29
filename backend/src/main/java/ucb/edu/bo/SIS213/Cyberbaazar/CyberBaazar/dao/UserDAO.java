@@ -1,8 +1,8 @@
 package ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dao;
 
-import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.UsuarioDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.UserDTO;
 
-public interface UsuarioDAO extends JpaRepository<UsuarioDTO, Integer> {
+public interface UserDAO extends JpaRepository<UserDTO, Integer> {
     
 }

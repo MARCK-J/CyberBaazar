@@ -5,52 +5,52 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "Usuarios")
-public class UsuarioDTO {
+@Table(name = "Users")
+public class UserDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer usuarioId;
+    @Column(name = "id_user")
+    private Integer userId;
 
-    @NotBlank(message = "El nombre es obligatorio")
-    private String nombre;
+    @NotBlank(message = "Name is mandatory")
+    private String name;
 
     @Email
-    @NotBlank(message = "El correo electrónico es obligatorio")
-    @Column(name = "correo_electronico")
-    private String correoElectronico;
+    @NotBlank(message = "Email is mandatory")
+    @Column(name = "mail")
+    private String email;
 
-    // Constructores, getters y setters
-    public UsuarioDTO() {
+    // Constructors, getters, and setters
+    public UserDTO() {
     }
 
-    public UsuarioDTO(Integer usuarioId, String nombre, String correoElectronico) {
-        this.usuarioId = usuarioId;
-        this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
+    public UserDTO(Integer userId, String name, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.email = email;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
