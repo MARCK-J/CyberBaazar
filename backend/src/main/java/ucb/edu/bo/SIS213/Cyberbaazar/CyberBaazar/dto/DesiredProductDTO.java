@@ -9,7 +9,7 @@ public class DesiredProductDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dproduct")
-    private Integer desiredProductId;
+    private Long desiredProductId;
 
     @Column(name = "saved_date", nullable = false)
     private Date savedDate;
@@ -24,18 +24,18 @@ public class DesiredProductDTO {
     public DesiredProductDTO() {
     }
 
-    public DesiredProductDTO(Integer desiredProductId, Date savedDate, Integer status, Integer userId) {
+    public DesiredProductDTO(Long desiredProductId, Date savedDate, Integer status, Integer userId) {
         this.desiredProductId = desiredProductId;
         this.savedDate = savedDate;
         this.status = status;
         this.userId = userId;
     }
 
-    public Integer getDesiredProductId() {
+    public Long getDesiredProductId() {
         return desiredProductId;
     }
 
-    public void setDesiredProductId(Integer desiredProductId) {
+    public void setDesiredProductId(Long desiredProductId) {
         this.desiredProductId = desiredProductId;
     }
 

@@ -8,7 +8,7 @@ public class CountryDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_country")
-    private Integer countryId;
+    private Long countryId;
 
     @Column(name = "code", length = 5, nullable = false)
     private String code;
@@ -20,17 +20,17 @@ public class CountryDTO {
     public CountryDTO() {
     }
 
-    public CountryDTO(Integer countryId, String code, String name) {
+    public CountryDTO(Long countryId, String code, String name) {
         this.countryId = countryId;
         this.code = code;
         this.name = name;
     }
 
-    public Integer getCountryId() {
+    public Long getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Integer countryId) {
+    public void setCountryId(Long countryId) {
         this.countryId = countryId;
     }
 

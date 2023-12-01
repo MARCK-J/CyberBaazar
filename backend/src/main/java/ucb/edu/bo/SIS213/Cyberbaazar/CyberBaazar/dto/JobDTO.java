@@ -8,7 +8,7 @@ public class JobDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_job")
-    private Integer jobId;
+    private Long jobId;
 
     @Column(name = "Job_id", length = 50, nullable = false)
     private String jobIdValue;
@@ -26,7 +26,7 @@ public class JobDTO {
     public JobDTO() {
     }
 
-    public JobDTO(Integer jobId, String jobIdValue, Integer productId, Integer eStoreId, Integer countryId) {
+    public JobDTO(Long jobId, String jobIdValue, Integer productId, Integer eStoreId, Integer countryId) {
         this.jobId = jobId;
         this.jobIdValue = jobIdValue;
         this.productId = productId;
@@ -34,11 +34,11 @@ public class JobDTO {
         this.countryId = countryId;
     }
 
-    public Integer getJobId() {
+    public Long getJobId() {
         return jobId;
     }
 
-    public void setJobId(Integer jobId) {
+    public void setJobId(Long jobId) {
         this.jobId = jobId;
     }
 

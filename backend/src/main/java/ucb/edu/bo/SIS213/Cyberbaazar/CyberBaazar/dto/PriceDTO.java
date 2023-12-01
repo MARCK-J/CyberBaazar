@@ -9,7 +9,7 @@ public class PriceDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_price")
-    private Integer priceId;
+    private Long priceId;
 
     @Column(name = "image", length = 100, nullable = false)
     private String image;
@@ -36,7 +36,7 @@ public class PriceDTO {
     public PriceDTO() {
     }
 
-    public PriceDTO(Integer priceId, String image, String code, String name, String urlPrice, Timestamp date, Integer jobId, Integer desiredProductId) {
+    public PriceDTO(Long priceId, String image, String code, String name, String urlPrice, Timestamp date, Integer jobId, Integer desiredProductId) {
         this.priceId = priceId;
         this.image = image;
         this.code = code;
@@ -47,11 +47,11 @@ public class PriceDTO {
         this.desiredProductId = desiredProductId;
     }
 
-    public Integer getPriceId() {
+    public Long getPriceId() {
         return priceId;
     }
 
-    public void setPriceId(Integer priceId) {
+    public void setPriceId(Long priceId) {
         this.priceId = priceId;
     }
 

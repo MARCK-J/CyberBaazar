@@ -10,7 +10,7 @@ public class UserDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private Integer userId;
+    private Long userId;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
@@ -24,17 +24,17 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(Integer userId, String name, String email) {
+    public UserDTO(Long userId, String name, String email) {
         this.userId = userId;
         this.name = name;
         this.email = email;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

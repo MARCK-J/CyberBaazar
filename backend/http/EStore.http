@@ -1,0 +1,20 @@
+### Obtener todas las tiendas
+GET http://localhost:8080/api/v1/estores/
+Accept: application/json
+
+### Obtener una tienda por ID
+GET http://localhost:8080/api/v1/estores/2
+Accept: application/json
+
+### Obtener una tienda inexistente por ID
+GET http://localhost:8080/api/v1/estores/99
+Accept: application/json
+
+### Crear una tienda exitosamente
+POST http://localhost:8080/api/v1/estores/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Tienda1"
+}

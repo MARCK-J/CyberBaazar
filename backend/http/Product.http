@@ -1,0 +1,21 @@
+### Obtener todos los productos
+GET http://localhost:8080/api/v1/products/
+Accept: application/json
+
+### Obtener un producto por ID
+GET http://localhost:8080/api/v1/products/2
+Accept: application/json
+
+### Obtener un producto inexistente por ID
+GET http://localhost:8080/api/v1/products/99
+Accept: application/json
+
+### Crear un producto exitosamente
+POST http://localhost:8080/api/v1/products/
+Content-Type: application/json
+Accept: application/json
+
+{       
+    "code": "",
+    "name": "Ihpone 12"
+}

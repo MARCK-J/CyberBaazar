@@ -8,7 +8,7 @@ public class ProductDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product")
-    private Integer productId;
+    private Long productId;
 
     @Column(name = "code", nullable = false)
     private String code;
@@ -20,17 +20,17 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(Integer productId, String code, String name) {
+    public ProductDTO(Long productId, String code, String name) {
         this.productId = productId;
         this.code = code;
         this.name = name;
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 

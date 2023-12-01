@@ -8,7 +8,7 @@ public class EStoreDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estores")
-    private Integer storeId;
+    private Long storeId;
 
     @Column(name = "name")
     private String name;
@@ -17,16 +17,16 @@ public class EStoreDTO {
     public EStoreDTO() {
     }
 
-    public EStoreDTO(Integer storeId, String name) {
+    public EStoreDTO(Long storeId, String name) {
         this.storeId = storeId;
         this.name = name;
     }
 
-    public Integer getStoreId() {
+    public Long getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(Integer storeId) {
+    public void setStoreId(Long storeId) {
         this.storeId = storeId;
     }
 
