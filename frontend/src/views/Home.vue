@@ -13,8 +13,7 @@ import HomeContent from "../components/HomeContent.vue";
 export default {
   name: "home-view",
   components: {
-    Hero,
-    HomeContent,
+    HomeContent
   },
 };
 </script>

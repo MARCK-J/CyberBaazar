@@ -13,13 +13,11 @@
 <script lang="ts">
 import NavBar from "./components/NavBar.vue";
 import Error from "./components/Error.vue";
-import ApiCall from './components/ApiCall.vue';
 
 export default {
   components: {
     NavBar,
-    Error,
-    ApiCall
+    Error
   }
 };
 </script>

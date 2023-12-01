@@ -71,14 +71,14 @@ export default {
   color: white;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1vh;
 }
 
 .product-image {
   width: 100px; /* Ancho de la imagen */
-  height: 100px; /* Altura de la imagen */
+  height: 120px; /* Altura de la imagen */
 }
 
 .result-item {
@@ -86,9 +86,9 @@ export default {
 }
 
 .offer-item {
-  margin-bottom: 20px; /* Espacio entre cada elemento */
+  margin-bottom: 25px; /* Espacio entre cada elemento */
   border-bottom: 1px solid white; /* Línea separadora entre elementos */
-  padding-bottom: 20px; /* Espacio en la parte inferior de cada elemento */
+  padding-bottom: 25px; /* Espacio en la parte inferior de cada elemento */
 }
 
 .item-container {
@@ -105,6 +105,6 @@ export default {
 }
 
 .view-link {
-  color: rgb(53, 20, 238)4)55, 0, 0); /* Color de la tipografía para el enlace */
+  color: rgb(53, 20, 238) /* Color de la tipografía para el enlace */
 }
 </style>
