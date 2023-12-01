@@ -15,16 +15,16 @@ public class DesiredProductDTO {
     private Date savedDate;
 
     @Column(name = "status", nullable = false)
-    private Integer status;
+    private Long status;
 
     @Column(name = "Users_id_user", nullable = false)
-    private Integer userId;
+    private Long userId;
 
     // Constructores, getters y setters
     public DesiredProductDTO() {
     }
 
-    public DesiredProductDTO(Long desiredProductId, Date savedDate, Integer status, Integer userId) {
+    public DesiredProductDTO(Long desiredProductId, Date savedDate, Long status, Long userId) {
         this.desiredProductId = desiredProductId;
         this.savedDate = savedDate;
         this.status = status;
@@ -47,19 +47,19 @@ public class DesiredProductDTO {
         this.savedDate = savedDate;
     }
 
-    public Integer getStatus() {
+    public Long getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Long status) {
         this.status = status;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

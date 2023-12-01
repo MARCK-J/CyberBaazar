@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.ProductBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ProductDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
@@ -20,6 +22,7 @@ public class ProductAPI {
 
     @Autowired
     private ProductBL productBL;
+    private JobBL jobBL;
 
     @GetMapping("/")
     public ResponseEntity<ResponseDTO> findAllProducts() {
@@ -63,6 +66,10 @@ public class ProductAPI {
     public ResponseEntity<ResponseDTO> saveProduct(@Valid @RequestBody ProductDTO productDTO, BindingResult result) {
         try {
             LOGGER.info("Guardando producto");
+            ProductDTO savedProduct = productBL.saveProduct(productDTO);
+
+            // Enviar datos a la API externa
+            jobBL.sendDataToPriceAnalytics(null, null, savedProduct.getName());
             ResponseDTO response = new ResponseDTO();
             response.setStatus(200);
             response.setMessage("Producto guardado");

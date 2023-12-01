@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.CountryBL;
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.CountryDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
 import jakarta.validation.Valid;
@@ -19,6 +20,7 @@ public class CountryAPI {
 
     @Autowired
     private CountryBL countryBL;
+    private JobBL jobBL;
 
     @GetMapping("/")
     public ResponseEntity<ResponseDTO> findAllCountries() {
@@ -43,6 +45,11 @@ public class CountryAPI {
     public ResponseEntity<ResponseDTO> findCountryById(@PathVariable Long id) {
         try {
             LOGGER.info("Buscando país con ID: {}", id);
+            // Obtener el país
+            CountryDTO foundCountry = countryBL.findCountryById(id);
+
+            // Enviar datos a la API externa utilizando IntegrationService
+            jobBL.sendDataToPriceAnalytics(null, foundCountry.getCode(), null);
             ResponseDTO response = new ResponseDTO();
             response.setStatus(200);
             response.setMessage("País encontrado");

@@ -10,9 +10,13 @@ import java.util.Optional;
 
 @Service
 public class CountryBL {
-    @Autowired
     private CountryDAO countryDAO;
 
+    @Autowired
+    public CountryBL(CountryDAO countryDAO) {
+        this.countryDAO = countryDAO;
+    }
+    
     public List<CountryDTO> findAllCountries() {
         try {
             return countryDAO.findAll();

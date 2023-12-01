@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.EStoreBL;
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.EStoreDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
 
@@ -21,6 +22,7 @@ public class EStoreAPI {
 
     @Autowired
     private EStoreBL eStoreBL;
+    private JobBL jobBL;
 
     @GetMapping("/")
     public ResponseEntity<ResponseDTO> findAllEStores() {
@@ -45,6 +47,11 @@ public class EStoreAPI {
     public ResponseEntity<ResponseDTO> findEStoreById(@PathVariable Long id) {
         try {
             LOGGER.info("Buscando tienda con ID: {}", id);
+            // Obtener la tienda
+            EStoreDTO foundEStore = eStoreBL.findEStoreById(id);
+
+            // Enviar datos a la API externa utilizando IntegrationService
+            jobBL.sendDataToPriceAnalytics(foundEStore.getName(), null, null);
             ResponseDTO response = new ResponseDTO();
             response.setStatus(200);
             response.setMessage("Tienda encontrada");

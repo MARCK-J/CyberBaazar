@@ -14,19 +14,19 @@ public class JobDTO {
     private String jobIdValue;
 
     @Column(name = "Products_id_product", nullable = false)
-    private Integer productId;
+    private Long productId;
 
     @Column(name = "EStores_id_estores", nullable = false)
-    private Integer eStoreId;
+    private Long eStoreId;
 
     @Column(name = "Country_id_country", nullable = false)
-    private Integer countryId;
+    private Long countryId;
 
     // Constructores, getters y setters
     public JobDTO() {
     }
 
-    public JobDTO(Long jobId, String jobIdValue, Integer productId, Integer eStoreId, Integer countryId) {
+    public JobDTO(Long jobId, String jobIdValue, Long productId, Long eStoreId, Long countryId) {
         this.jobId = jobId;
         this.jobIdValue = jobIdValue;
         this.productId = productId;
@@ -50,27 +50,27 @@ public class JobDTO {
         this.jobIdValue = jobIdValue;
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
-    public Integer getEStoreId() {
+    public Long getEStoreId() {
         return eStoreId;
     }
 
-    public void setEStoreId(Integer eStoreId) {
+    public void setEStoreId(Long eStoreId) {
         this.eStoreId = eStoreId;
     }
 
-    public Integer getCountryId() {
+    public Long getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Integer countryId) {
+    public void setCountryId(Long countryId) {
         this.countryId = countryId;
     }
 }
