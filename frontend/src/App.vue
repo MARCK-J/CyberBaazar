@@ -1,11 +1,9 @@
 <template>
   <div id="app" class="d-flex flex-column h-100">
     <nav-bar />
-    <div class="container flex-grow-1">
+    <div class="container-fluid flex-grow-1">
       <error />
-      <div class="mt-5">
-        <router-view />
-      </div>
+      <router-view />
     </div>
   </div>
 </template>
@@ -21,3 +19,18 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+</style>

@@ -66,10 +66,6 @@ public class ProductAPI {
     public ResponseEntity<ResponseDTO> saveProduct(@Valid @RequestBody ProductDTO productDTO, BindingResult result) {
         try {
             LOGGER.info("Guardando producto");
-            ProductDTO savedProduct = productBL.saveProduct(productDTO);
-
-            // Enviar datos a la API externa
-            jobBL.sendDataToPriceAnalytics(null, null, savedProduct.getName());
             ResponseDTO response = new ResponseDTO();
             response.setStatus(200);
             response.setMessage("Producto guardado");

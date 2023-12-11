@@ -69,11 +69,13 @@ export default {
 .hero-container {
   background-color: rgb(255, 255, 255);
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  margin-top: 1vh;
+  width: 80%; /* Ajusta el ancho según tus necesidades, puede ser en porcentaje o píxeles */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product-image {
@@ -97,7 +99,7 @@ export default {
 }
 
 .item-details {
-  margin-left: 20px; /* Ajusta el margen según tus necesidades */
+  margin-left: 50px; /* Ajusta el margen según tus necesidades */
 }
 
 .price, .name {
@@ -105,6 +107,6 @@ export default {
 }
 
 .view-link {
-  color: rgb(53, 20, 238) /* Color de la tipografía para el enlace */
+  color: rgb(53, 20, 238); /* Color de la tipografía para el enlace */
 }
 </style>

@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <hero />
-    <hr />
-    <home-content />
+  <div class="container">
+    <div class="left-component">
+      <hero />
+    </div>
+    <div class="right-component">
+      <home-content />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Hero from "../components/Hero.vue";
 import HomeContent from "../components/HomeContent.vue";
+import Hero from "../components/Hero.vue";
 
 export default {
   name: "home-view",
@@ -19,7 +22,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.next-steps .fa-link {
-    margin-right: 5px;
+.container {
+  display: flex;
+  max-width: fit-content; /* O el ancho que desees */ /* Puedes establecer un ancho máximo si es necesario */ /* Centra el contenedor horizontalmente */
 }
 </style>
+

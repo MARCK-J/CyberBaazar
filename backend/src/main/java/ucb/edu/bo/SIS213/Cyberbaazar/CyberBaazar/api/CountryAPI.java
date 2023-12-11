@@ -45,11 +45,6 @@ public class CountryAPI {
     public ResponseEntity<ResponseDTO> findCountryById(@PathVariable Long id) {
         try {
             LOGGER.info("Buscando país con ID: {}", id);
-            // Obtener el país
-            CountryDTO foundCountry = countryBL.findCountryById(id);
-
-            // Enviar datos a la API externa utilizando IntegrationService
-            jobBL.sendDataToPriceAnalytics(null, foundCountry.getCode(), null);
             ResponseDTO response = new ResponseDTO();
             response.setStatus(200);
             response.setMessage("País encontrado");

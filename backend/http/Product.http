@@ -16,6 +16,6 @@ Content-Type: application/json
 Accept: application/json
 
 {       
-    "code": "IP12",
+    "code": "",
     "name": "Ihpone 12"
 }

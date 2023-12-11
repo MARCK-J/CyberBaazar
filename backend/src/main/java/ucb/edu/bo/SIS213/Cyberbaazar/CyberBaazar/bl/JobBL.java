@@ -71,25 +71,4 @@ public class JobBL {
             throw new RuntimeException("Error al actualizar el trabajo");
         }
     }
-
-    public String sendDataToPriceAnalytics(String estoreName, String countryCode, String productName) {
-        String apiUrl = "https://price-analytics.p.rapidapi.com/search-by-term";
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        headers.set("X-RapidAPI-Key", "7f26c57ed7msh1b75ef0bb587240p1e019djsn66f587f31b02");
-        headers.set("X-RapidAPI-Host", "price-analytics.p.rapidapi.com");
-
-        // Construir el cuerpo de la solicitud
-        StringBuilder requestBody = new StringBuilder();
-        requestBody.append("source=").append(estoreName).append("&");
-        requestBody.append("country=").append(countryCode).append("&");
-        requestBody.append("values=").append(productName);
-
-        // Realizar la llamada a la API externa con headers y obtener la respuesta
-        ResponseEntity<String> response = restTemplate.postForEntity(apiUrl, new HttpEntity<>(requestBody.toString(), headers), String.class);
-
-        // Devolver la respuesta como String
-        return response.getBody();
-    }
 }

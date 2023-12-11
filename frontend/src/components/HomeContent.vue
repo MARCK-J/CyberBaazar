@@ -1,10 +1,8 @@
 <template>
-  <div class="hero-container">
-    <div class="text-center hero">
+  <div class="home-container">
+    <div class="text-center home">
       <h1 class="mb-4">CyberBaazar</h1>
-      
       <p>This is the home page of CyberBaazar.</p>
-
       <div v-if="responseData && responseData.status === 'finished' && responseData.results.length > 0">
         <div v-for="(result, resultIndex) in responseData.results" :key="resultIndex" class="result-item">
           <!-- Iterar sobre todas las ofertas -->
@@ -43,7 +41,7 @@ export default {
   },
   methods: {
     async pollApi() {
-      const url = `https://price-analytics.p.rapidapi.com/poll-job/6569f8ebb78a375ada7694c4`;
+      const url = `https://price-analytics.p.rapidapi.com/poll-job/6573c01f9a6d0563732a3c13`;
 
       const options = {
         method: 'GET',
@@ -66,9 +64,9 @@ export default {
 </script>
 
 <style scoped>
-.hero-container {
+.home-container {
   background-color: rgb(255, 255, 255);
-  color: white;
+  color: rgb(0, 0, 0);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -99,7 +97,9 @@ export default {
 }
 
 .item-details {
-  margin-left: 50px; /* Ajusta el margen según tus necesidades */
+  margin-left: 10px;
+  width: 100%;
+   /* Ajusta el margen según tus necesidades */
 }
 
 .price, .name {
