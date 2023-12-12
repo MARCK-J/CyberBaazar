@@ -62,4 +62,17 @@ public class EStoreBL {
             throw new RuntimeException("Error al actualizar la tienda");
         }
     }
+
+    public EStoreDTO findEStoreByName(String name) {
+        try {
+            Optional<EStoreDTO> eStoreDTO = eStoreDAO.findByName(name);
+            if (eStoreDTO.isPresent()) {
+                return eStoreDTO.get();
+            } else {
+                throw new RuntimeException("Tienda no encontrada");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

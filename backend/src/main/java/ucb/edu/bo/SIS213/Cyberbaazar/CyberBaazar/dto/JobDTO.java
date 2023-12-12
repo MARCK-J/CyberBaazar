@@ -8,69 +8,70 @@ public class JobDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_job")
-    private Long jobId;
+    private Long idJob;
 
-    @Column(name = "Job_id", length = 50, nullable = false)
-    private String jobIdValue;
+    @Column(name = "job_id", nullable = false)
+    private String jobId;
 
-    @Column(name = "Products_id_product", nullable = false)
-    private Long productId;
+    @Column(name = "products_id_product", nullable = false)
+    private Long productsIdProduct;
 
-    @Column(name = "EStores_id_estores", nullable = false)
-    private Long eStoreId;
+    @Column(name = "estores_id_estores", nullable = false)
+    private Long estoresIdEstores;
 
-    @Column(name = "Country_id_country", nullable = false)
-    private Long countryId;
+    @Column(name = "country_id_country", nullable = false)
+    private Long countryIdCountry;
 
-    // Constructores, getters y setters
+    // generame el Constructor
+
     public JobDTO() {
     }
-
-    public JobDTO(Long jobId, String jobIdValue, Long productId, Long eStoreId, Long countryId) {
+    
+    public JobDTO(Long idJob, String jobId, Long productsIdProduct, Long estoresIdEstores, Long countryIdCountry) {
+        this.idJob = idJob;
         this.jobId = jobId;
-        this.jobIdValue = jobIdValue;
-        this.productId = productId;
-        this.eStoreId = eStoreId;
-        this.countryId = countryId;
+        this.productsIdProduct = productsIdProduct;
+        this.estoresIdEstores = estoresIdEstores;
+        this.countryIdCountry = countryIdCountry;
     }
 
-    public Long getJobId() {
+    public Long getIdJob() {
+        return idJob;
+    }
+
+    public void setIdJob(Long idJob) {
+        this.idJob = idJob;
+    }
+
+    public String getJobId() {
         return jobId;
     }
 
-    public void setJobId(Long jobId) {
+    public void setJobId(String jobId) {
         this.jobId = jobId;
     }
 
-    public String getJobIdValue() {
-        return jobIdValue;
+    public Long getProductsIdProduct() {
+        return productsIdProduct;
     }
 
-    public void setJobIdValue(String jobIdValue) {
-        this.jobIdValue = jobIdValue;
+    public void setProductsIdProduct(Long productsIdProduct) {
+        this.productsIdProduct = productsIdProduct;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Long getEstoresIdEstores() {
+        return estoresIdEstores;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setEstoresIdEstores(Long estoresIdEstores) {
+        this.estoresIdEstores = estoresIdEstores;
     }
 
-    public Long getEStoreId() {
-        return eStoreId;
+    public Long getCountryIdCountry() {
+        return countryIdCountry;
     }
 
-    public void setEStoreId(Long eStoreId) {
-        this.eStoreId = eStoreId;
-    }
-
-    public Long getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(Long countryId) {
-        this.countryId = countryId;
+    public void setCountryIdCountry(Long countryIdCountry) {
+        this.countryIdCountry = countryIdCountry;
     }
 }

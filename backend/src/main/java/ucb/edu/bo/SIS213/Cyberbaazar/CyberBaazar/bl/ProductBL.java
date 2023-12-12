@@ -61,6 +61,19 @@ public class ProductBL {
             throw new RuntimeException("Error al actualizar el producto");
         }
     }
+
+    public Long findProductByName(String productName) {
+        try {
+            Optional<ProductDTO> productDTO = productDAO.findByName(productName);
+            if (productDTO.isPresent()) {
+                return productDTO.get().getProductId();
+            } else {
+                throw new RuntimeException("Producto no encontrado");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
 
 

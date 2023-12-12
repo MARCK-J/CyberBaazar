@@ -61,5 +61,18 @@ public class CountryBL {
             throw new RuntimeException("Error al actualizar el país");
         }
     }
+
+    public Long findCountryByCode(String countryCode) {
+        try {
+            Optional<CountryDTO> countryDTO = countryDAO.findByCode(countryCode);
+            if (countryDTO.isPresent()) {
+                return countryDTO.get().getCountryId();
+            } else {
+                throw new RuntimeException("País no encontrado");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
 

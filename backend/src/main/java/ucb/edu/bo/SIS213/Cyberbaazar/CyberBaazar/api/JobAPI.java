@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ExternalApiDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.JobDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
 
@@ -63,6 +64,30 @@ public class JobAPI {
         }
     }
 
+    @PostMapping("/call-external-api")
+    public ResponseEntity<ResponseDTO> callExternalApi(@RequestBody ExternalApiDTO externalApiDTO) {
+        try {
+            LOGGER.info("Llamando a la API externa");
+            ResponseDTO response = new ResponseDTO();
+            response.setStatus(200);
+            response.setMessage("Llamada a la API externa exitosa");
+            response.setData(jobBL.callExternalApi(externalApiDTO.getSource(), externalApiDTO.getCountry(), externalApiDTO.getValues()).getBody());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            LOGGER.error("Error al llamar a la API externa", e);
+            return handleErrorResponse(e);
+        }
+    }
+
+    private ResponseEntity<ResponseDTO> handleErrorResponse(Exception e) {
+        ResponseDTO response = new ResponseDTO();
+        response.setStatus(500);
+        response.setMessage("Error en la solicitud");
+        response.setError("Error al llamar a la API externa");
+        response.setData(null);
+        return ResponseEntity.status(500).body(response);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseDTO> deleteJobById(@PathVariable Long id) {
         try {
@@ -91,14 +116,5 @@ public class JobAPI {
             LOGGER.error("Error al actualizar el trabajo", e);
             return handleErrorResponse(e);
         }
-    }
-
-    // Método privado para manejar errores y construir respuestas de error comunes
-    private ResponseEntity<ResponseDTO> handleErrorResponse(Exception e) {
-        ResponseDTO response = new ResponseDTO();
-        response.setStatus(400);
-        response.setMessage("Error en la solicitud");
-        response.setError(e.getMessage());
-        return ResponseEntity.badRequest().body(response);
     }
 }
