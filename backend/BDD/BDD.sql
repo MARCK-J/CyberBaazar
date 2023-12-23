@@ -62,7 +62,6 @@ CREATE TABLE Prices (
 -- Table: Products
 CREATE TABLE Products (
     id_product int  NOT NULL,
-    code varchar(255)  NOT NULL,
     name varchar(255)  NOT NULL,
     CONSTRAINT Products_pk PRIMARY KEY (id_product)
 );

@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -94,6 +92,9 @@ public class JobBL {
             headers.set("X-RapidAPI-Key", "1320b9c33bmsh5b861219bac6570p16aba6jsn9813b2764b31");
             headers.set("X-RapidAPI-Host", "price-analytics.p.rapidapi.com");
 
+            // Buscar el producto por nombre o crear uno nuevo
+            Long productId = productBL.findProductByNameOrCreate(values);
+
             String requestBody = "source=" + source + "&country=" + country + "&values=" + values;
 
             HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
@@ -112,7 +113,7 @@ public class JobBL {
             EStoreDTO eStoreDTO = eStoreBL.findEStoreByName(source);
             Long estoresId = eStoreDTO.getStoreId();
             Long countryId = countryBL.findCountryByCode(country);
-            Long productId = productBL.findProductByName(values);
+            //Long productId = productBL.findProductByName(values);
 
             // Guardar el jobId en la base de datos
             JobDTO jobDTO = new JobDTO();

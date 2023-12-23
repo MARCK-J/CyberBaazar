@@ -10,9 +10,6 @@ public class ProductDTO {
     @Column(name = "id_product")
     private Long productId;
 
-    @Column(name = "code", nullable = false)
-    private String code;
-
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -20,9 +17,8 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(Long productId, String code, String name) {
+    public ProductDTO(Long productId, String name) {
         this.productId = productId;
-        this.code = code;
         this.name = name;
     }
 
@@ -32,14 +28,6 @@ public class ProductDTO {
 
     public void setProductId(Long productId) {
         this.productId = productId;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getName() {

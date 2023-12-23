@@ -74,6 +74,23 @@ public class ProductBL {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    public Long findProductByNameOrCreate(String productName) {
+        try {
+            Optional<ProductDTO> productDTO = productDAO.findByName(productName);
+            if (productDTO.isPresent()) {
+                return productDTO.get().getProductId();
+            } else {
+                // Si el producto no existe, crea uno nuevo
+                ProductDTO newProduct = new ProductDTO();
+                newProduct.setName(productName);
+                ProductDTO savedProduct = saveProduct(newProduct);
+                return savedProduct.getProductId();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
 
 
