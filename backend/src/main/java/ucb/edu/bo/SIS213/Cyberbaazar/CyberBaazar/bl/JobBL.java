@@ -1,5 +1,7 @@
 package ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl;
 
+import org.asynchttpclient.AsyncHttpClient;
+import org.asynchttpclient.DefaultAsyncHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -7,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +21,7 @@ import java.util.Optional;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dao.JobDAO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.EStoreDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.JobDTO;
+import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.PriceDTO;
 
 @Service
 public class JobBL {
@@ -25,14 +30,16 @@ public class JobBL {
     private EStoreBL eStoreBL;
     private ProductBL productBL;
     private CountryBL countryBL;
+    private PriceBL priceBL;
     private RestTemplate restTemplate;
 
     @Autowired
-    public JobBL(JobDAO jobDAO, EStoreBL eStoreBL, ProductBL productBL, CountryBL countryBL, RestTemplate restTemplate) {
+    public JobBL(JobDAO jobDAO, EStoreBL eStoreBL, ProductBL productBL, CountryBL countryBL, PriceBL priceBL, RestTemplate restTemplate) {
         this.jobDAO = jobDAO;
         this.eStoreBL = eStoreBL;
         this.productBL = productBL;
         this.countryBL = countryBL;
+        this.priceBL = priceBL;
         this.restTemplate = restTemplate;
     }
 
@@ -119,6 +126,8 @@ public class JobBL {
             
             // Guardar en la base de datos
             jobDAO.save(jobDTO);
+
+            priceBL.processExternalApiResponse(jobIdVal, source, country, values);
 
             return ResponseEntity.status(responseEntity.getStatusCode())
                     .headers(responseEntity.getHeaders())

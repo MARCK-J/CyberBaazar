@@ -10,7 +10,7 @@ Accept: application/json
 {       
     "source": "amazon",
     "country" : "es",
-    "values": "intel"
+    "values": "bicicleta"
 }
 
 ###
