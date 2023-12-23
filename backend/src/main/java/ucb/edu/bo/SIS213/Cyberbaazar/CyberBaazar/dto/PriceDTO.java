@@ -17,26 +17,23 @@ public class PriceDTO {
     @Column(name = "code", length = 50, nullable = false)
     private String code;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", length = 1000, nullable = false)
     private String name;
 
-    @Column(name = "url_price", nullable = false)
+    @Column(name = "url_price",length = 1000, nullable = false)
     private String urlPrice;
 
     @Column(name = "date", nullable = false)
     private Timestamp date;
 
-    @Column(name = "Job_id_job", nullable = false)
-    private Long jobId;
-
-    @Column(name = "DesiredProducts_id_dproduct", nullable = false)
-    private Long desiredProductId;
+    @Column(name = "job_id_job", nullable = false)
+    private String jobId;
 
     // Constructores, getters y setters
     public PriceDTO() {
     }
 
-    public PriceDTO(Long priceId, String image, String code, String name, String urlPrice, Timestamp date, Long jobId, Long desiredProductId) {
+    public PriceDTO(Long priceId, String image, String code, String name, String urlPrice, Timestamp date, String jobId) {
         this.priceId = priceId;
         this.image = image;
         this.code = code;
@@ -44,7 +41,6 @@ public class PriceDTO {
         this.urlPrice = urlPrice;
         this.date = date;
         this.jobId = jobId;
-        this.desiredProductId = desiredProductId;
     }
 
     public Long getPriceId() {
@@ -95,19 +91,11 @@ public class PriceDTO {
         this.date = date;
     }
 
-    public Long getJobId() {
+    public String getJobId() {
         return jobId;
     }
 
-    public void setJobId(Long jobId) {
+    public void setJobId(String jobId) {
         this.jobId = jobId;
-    }
-
-    public Long getDesiredProductId() {
-        return desiredProductId;
-    }
-
-    public void setDesiredProductId(Long desiredProductId) {
-        this.desiredProductId = desiredProductId;
     }
 }

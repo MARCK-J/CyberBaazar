@@ -1,7 +1,5 @@
 package ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl;
 
-import org.asynchttpclient.AsyncHttpClient;
-import org.asynchttpclient.DefaultAsyncHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +19,6 @@ import java.util.Optional;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dao.JobDAO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.EStoreDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.JobDTO;
-import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.PriceDTO;
 
 @Service
 public class JobBL {
@@ -94,7 +91,7 @@ public class JobBL {
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-            headers.set("X-RapidAPI-Key", "7f26c57ed7msh1b75ef0bb587240p1e019djsn66f587f31b02");
+            headers.set("X-RapidAPI-Key", "1320b9c33bmsh5b861219bac6570p16aba6jsn9813b2764b31");
             headers.set("X-RapidAPI-Host", "price-analytics.p.rapidapi.com");
 
             String requestBody = "source=" + source + "&country=" + country + "&values=" + values;
