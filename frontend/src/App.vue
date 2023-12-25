@@ -27,6 +27,7 @@ export default {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: rgb(94, 94, 94);
 }
 
 .flex-grow-1 {

@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.ProductBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ProductDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
@@ -22,7 +21,6 @@ public class ProductAPI {
 
     @Autowired
     private ProductBL productBL;
-    private JobBL jobBL;
 
     @GetMapping("/")
     public ResponseEntity<ResponseDTO> findAllProducts() {

@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.CountryBL;
-import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.bl.JobBL;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.CountryDTO;
 import ucb.edu.bo.SIS213.Cyberbaazar.CyberBaazar.dto.ResponseDTO;
 import jakarta.validation.Valid;
@@ -20,7 +19,6 @@ public class CountryAPI {
 
     @Autowired
     private CountryBL countryBL;
-    private JobBL jobBL;
 
     @GetMapping("/")
     public ResponseEntity<ResponseDTO> findAllCountries() {

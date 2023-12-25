@@ -14,8 +14,8 @@ public class PriceDTO {
     @Column(name = "image", length = 100, nullable = false)
     private String image;
 
-    @Column(name = "code", length = 50, nullable = false)
-    private String code;
+    @Column(name = "price", length = 50, nullable = false)
+    private String price;
 
     @Column(name = "name", length = 1000, nullable = false)
     private String name;
@@ -33,10 +33,10 @@ public class PriceDTO {
     public PriceDTO() {
     }
 
-    public PriceDTO(Long priceId, String image, String code, String name, String urlPrice, Timestamp date, String jobId) {
+    public PriceDTO(Long priceId, String image, String price, String name, String urlPrice, Timestamp date, String jobId) {
         this.priceId = priceId;
         this.image = image;
-        this.code = code;
+        this.price = price;
         this.name = name;
         this.urlPrice = urlPrice;
         this.date = date;
@@ -59,12 +59,12 @@ public class PriceDTO {
         this.image = image;
     }
 
-    public String getCode() {
-        return code;
+    public String getPrice() {
+        return price;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getName() {

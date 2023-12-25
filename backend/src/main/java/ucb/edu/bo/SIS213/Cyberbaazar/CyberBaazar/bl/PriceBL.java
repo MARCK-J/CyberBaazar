@@ -123,7 +123,7 @@ public class PriceBL {
             for (JsonNode offer : offers) {
                 PriceDTO priceDTO = new PriceDTO();
                 priceDTO.setImage(offer.path("image").asText());
-                priceDTO.setCode(offer.path("asin").asText());
+                priceDTO.setPrice(offer.path("price").asText());
                 priceDTO.setName(offer.path("name").asText());
                 priceDTO.setUrlPrice(offer.path("link").path("href").asText());
 

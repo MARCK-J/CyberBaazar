@@ -20,6 +20,12 @@
               <router-link to="/" class="nav-link">Home</router-link>
             </li>
           </ul>
+          <div class="title-container">
+            <div class="text-center title">
+              <h1 class="mb-4">CYBERBAAZAR</h1>
+              <h1>THE PLACE TO FIND THE BEST PRICE</h1>
+            </div>
+          </div>
           <ul class="navbar-nav d-none d-md-block">
             <li v-if="!isAuthenticated && !isLoading" class="nav-item">
               <button
@@ -54,6 +60,7 @@
               </div>
             </li>
           </ul>
+          
 
           <ul class="navbar-nav d-md-none" v-if="!isAuthenticated && !isLoading">
             <button id="qsLoginBtn" class="btn btn-primary btn-block" @click="login">Log in</button>
@@ -120,7 +127,70 @@ export default {
 
 <style>
 #mobileAuthNavBar {
-  min-height: 125px;
+  min-height: 130px;
   justify-content: space-between;
+}
+.nav-container {
+  height: 60px;
+  background-color: black; /* Fondo negro */
+}
+
+.navbar {
+  background-color: black !important;
+   /* Fondo negro, !important para anular otros estilos */
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-color: white; /* Icono del botón de navegación en blanco */
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  border-bottom: 1px solid rgb(78, 78, 78) !important;
+}
+
+.navbar-toggler {
+  border: 1px solid white; /* Borde blanco para el botón de navegación */
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* Color del icono del botón de navegación */
+}
+
+.dropdown-menu {
+  background-color: black; /* Fondo negro para el menú desplegable */
+}
+
+.dropdown-item {
+  color: white !important; /* Texto blanco para los elementos del menú desplegable, !important para anular otros estilos */
+}
+
+.nav-user-profile {
+  border: 2px solid rgb(41, 41, 41); /* Borde blanco para la imagen del perfil */
+}
+
+#qsLoginBtn {
+  background-color: gray !important; /* Fondo gris para el botón Login, !important para anular otros estilos */
+  color: white !important; /* Texto blanco para el botón Login, !important para anular otros estilos */
+  border-color: gray !important; /* Color del borde gris, !important para anular otros estilos */
+}
+
+.title-container {
+  color: white;
+  margin-right: 30%;
+  margin-left: 25%;
+  
+}
+
+.title h1.mb-4 {
+  font-size: 2.5em;
+  font-family: 'Courier New', monospace;
+
+}
+
+.title h1 {
+  font-size: 1em;
+  font-family: 'Courier New', monospace;
+ /* Tamaño del segundo título, ajusta según sea necesario */
 }
 </style>

@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .home-container {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(94, 94, 94);
   color: rgb(0, 0, 0);
   min-height: 100vh;
   display: flex;

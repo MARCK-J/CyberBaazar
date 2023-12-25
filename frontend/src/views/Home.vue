@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left-component">
-      <hero />
+      <dropdown />
     </div>
     <div class="right-component">
       <home-content />
@@ -11,12 +11,13 @@
 
 <script lang="ts">
 import HomeContent from "../components/HomeContent.vue";
-import Hero from "../components/Hero.vue";
+import Dropdown from "../components/Dropdown.vue";
 
 export default {
   name: "home-view",
   components: {
-    HomeContent
+    HomeContent,
+    Dropdown,
   },
 };
 </script>
@@ -24,7 +25,18 @@ export default {
 <style lang="css" scoped>
 .container {
   display: flex;
-  max-width: fit-content; /* O el ancho que desees */ /* Puedes establecer un ancho máximo si es necesario */ /* Centra el contenedor horizontalmente */
+  max-width: inherit;
+  align-items: center;
+  
+}
+
+.left-component {
+  flex: 20%;
+}
+
+.right-component {
+  flex: 80%; /* Ocupa el 80% del ancho disponible */
 }
 </style>
+
 
