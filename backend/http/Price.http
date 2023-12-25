@@ -1,0 +1,3 @@
+### Obtener una tienda por ID
+GET http://localhost:8080/api/v1/prices/by-job-id/6588d27d6f389f3d04b99730
+Accept: application/json

@@ -140,3 +140,23 @@ ALTER TABLE DesiredProducts ADD CONSTRAINT ProductosDeseados_Usuarios
 ;
 
 -- End of file.
+
+SELECT * FROM job;
+select * from prices;
+select * from Products;
+select * from country;
+
+delete from Products;
+delete from job;
+delete from prices;
+
+-- Table: Prices
+CREATE TABLE Prices (
+    id_price SERIAL PRIMARY KEY,
+    image VARCHAR(100) NOT NULL,
+    price VARCHAR(50) NOT NULL,
+    name VARCHAR(1000) NOT NULL,
+    url_price VARCHAR(1000) NOT NULL,
+    date TIMESTAMP NOT NULL,
+    job_id_job VARCHAR(100) NOT NULL
+);

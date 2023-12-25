@@ -77,6 +77,20 @@ public class PriceBL {
         }
     }
 
+    public List<PriceDTO> findPricesByJobId(String jobId) {
+        try {
+            List<PriceDTO> prices = priceDAO.findPricesByJobId(jobId);
+            if (!prices.isEmpty()) {
+                return prices;
+            } else {
+                throw new RuntimeException("No se encontraron precios con jobId: " + jobId);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+    
+
     public void processExternalApiResponse(String jobIdVal, String source, String country, String values) {
         try {
             // Llamada al segundo endpoint para obtener los resultados
