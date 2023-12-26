@@ -131,8 +131,8 @@ export default {
   justify-content: space-between;
 }
 .nav-container {
-  height: 60px;
-  background-color: black; /* Fondo negro */
+  height: 140px;
+  background-color: black;
 }
 
 .navbar {
@@ -147,10 +147,6 @@ export default {
 .navbar-nav .nav-link {
   color: white !important;
   border-bottom: 1px solid rgb(78, 78, 78) !important;
-}
-
-.navbar-toggler {
-  border: 1px solid white; /* Borde blanco para el botón de navegación */
 }
 
 .navbar-toggler-icon {

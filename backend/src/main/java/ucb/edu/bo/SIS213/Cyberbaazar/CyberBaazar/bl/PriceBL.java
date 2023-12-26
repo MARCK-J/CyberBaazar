@@ -139,7 +139,15 @@ public class PriceBL {
                 priceDTO.setImage(offer.path("image").asText());
                 priceDTO.setPrice(offer.path("price").asText());
                 priceDTO.setName(offer.path("name").asText());
-                priceDTO.setUrlPrice(offer.path("link").path("href").asText());
+                // Obtener el valor de "link/href" o "url" como urlPrice
+                String urlFromLink = offer.path("link").path("href").asText();
+                String urlFromUrl = offer.path("url").asText();
+
+                // Elegir la primera opción no nula o vacía
+                String chosenUrl = (urlFromLink != null && !urlFromLink.isEmpty()) ? urlFromLink : 
+                    (urlFromUrl != null && !urlFromUrl.isEmpty()) ? urlFromUrl : "";
+
+                priceDTO.setUrlPrice(chosenUrl);
 
                 // Formatear la cadena de fecha y hora al formato deseado
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");

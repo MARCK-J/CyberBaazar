@@ -21,17 +21,12 @@ export default {
 </script>
 
 <style scoped>
+#app {
+  height: 200%;
+}
+
 .container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   background-color: rgb(94, 94, 94);
+  margin-top: -15px;
 }
-
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
 </style>
