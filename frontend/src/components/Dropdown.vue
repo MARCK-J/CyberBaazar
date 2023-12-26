@@ -1,6 +1,10 @@
 <template>
     <div class="container">
       <div class="left-container">
+      <div>
+        <h1>Search for a product</h1>
+        <p></p>
+      </div>
         <div class="combobox-wrapper">
           <!-- Primer Combobox -->
           <select v-model="selectedEstore" class="form-select combobox" @change="handleEstoreChange">
@@ -42,18 +46,39 @@
         <div class="spinner-border text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div>
-        <p class="mt-2">Loading...</p>
       </div>
 
       <!-- Mostrar resultados cuando se obtenga el jobId -->
+      <!-- Mostrar resultados cuando se obtenga el jobId -->
       <div v-else>
         <div v-if="pricesData && pricesData.data && pricesData.data.length > 0">
-          <div v-for="(price, index) in pricesData.data" :key="index" class="price-item">
-            <img :src="price.image" alt="Product Image" class="product-image" />
-            <div class="price-details">
-              <p class="price">Price: ${{ price.price }}</p>
-              <p class="name">{{ price.name }}</p>
-              <a :href="price.urlPrice" target="_blank" class="url-link">View on Amazon</a>
+          <div class="row">
+            <div
+              v-for="(price, index) in pricesData.data"
+              :key="index"
+              class="col-md-6 price-item"
+            >
+              <div class="price-item-border">
+                <!-- Contenido actual del price-item -->
+                <div class="d-flex flex-column align-items-center">
+                  <img
+                    :src="price.image"
+                    alt="Product Image"
+                    class="product-image"
+                  />
+                  <div class="price-details text-center">
+                    <p class="price">Price: ${{ price.price }}</p>
+                    <p class="name">{{ price.name }}</p>
+                    <a
+                      :href="price.urlPrice"
+                      target="_blank"
+                      class="url-link"
+                      >Link to the Product</a
+                    >
+                  </div>
+                </div>
+                <!-- Fin del contenido del price-item -->
+              </div>
             </div>
           </div>
         </div>
@@ -142,6 +167,8 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css2?family=Digital:wght@400&display=swap');
+
 /* Estilos para el contenedor principal */
 .container {
   display: flex;
@@ -154,50 +181,72 @@ export default {
 .left-container {
   width: 20%; /* Ajusta el ancho según tus necesidades */
   margin-right: auto;
-  border: 3px solid #ccc;
+  border: 2px solid #4e8cff;
+  border-radius: 15px;
   padding: 20px;
+  position: sticky;
+  top: 0;
 }
 
 /* Estilos para el contenedor derecho */
 .right-container {
   max-width: 70%;
   max-height: 90%; /* Ajusta el ancho según tus necesidades */
-  background-color: rgb(94, 94, 94);
   justify-content: left;
+  overflow-y: auto;
+  padding: 20px; 
 }
 /* Estilos comunes para los componentes */
 .combobox,
 .textfield,
 button {
   width: 250px; /* O el ancho que desees */
-  padding: 1px; /* Ajusta el relleno según tus necesidades */
+  padding: 1px;
+  background-color: #cde3ff; /* Color celeste suave de fondo */
+  border: 1px solid #0052eb; /* Borde con tono de celeste */
+  border-radius: 5px; /* Bordes redondeados */
+  color: #2b5a8a; /* Ajusta el relleno según tus necesidades */
 }
 /* Estilos para el combobox */
 .combobox {
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 /* Estilos para el textfield */
 .textfield {
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 /* Estilos para el botón */
 button {
-  margin-top: 40px;
+  margin-top: 45px;
+  cursor: pointer;
 }
 
-/* Estilos para el contenedor de precios */
+/* Estilos adicionales para resaltar el botón al pasar el mouse */
+button:hover {
+  background-color: #4e8cff; /* Cambia el color al pasar el mouse */
+  color: #fff; /* Cambia el color del texto al pasar el mouse */
+}
+
+/* Estilos actualizados para el contenedor de precios */
 .price-item {
   display: flex;
   margin-bottom: 20px;
+  justify-content: space-around;
 }
 
-/* Estilos para la imagen del producto */
+.price-item-border {
+  border: 2px solid #4e8cff; /* Color celeste del borde */
+  padding: 10px; /* Espaciado interior */
+  margin-bottom: 20px; /* Espaciado inferior entre elementos */
+}
+
+/* Estilos actualizados para la imagen del producto */
 .product-image {
-  width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  width: 150px; /* Ajusta el tamaño de la imagen según tus necesidades */
   height: auto;
-  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 /* Estilos para los detalles del precio */
@@ -210,24 +259,43 @@ button {
 .price {
   font-size: 18px; /* Ajusta el tamaño de la fuente según tus necesidades */
   margin-bottom: 5px;
+  font-family: 'Digital', sans-serif;
 }
 
 /* Estilos para el nombre del producto */
 .name {
   font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
   margin-bottom: 5px;
+  font-family: 'Digital', sans-serif;
 }
 
 /* Estilos para el enlace URL */
 .url-link {
-  font-size: 14px; /* Ajusta el tamaño de la fuente según tus necesidades */
-  color: blue; /* Puedes cambiar el color según tus necesidades */
+  font-size: 18px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  color: rgb(144, 155, 255); /* Puedes cambiar el color según tus necesidades */
   text-decoration: underline;
+  font-family: 'Arial', sans-serif;
 }
 
 .spinner-border {
   width: 13rem;
   height: 13rem;
+  margin-right: 550px;
+}
+
+/* Nuevos estilos para la disposición de los resultados */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 </style>

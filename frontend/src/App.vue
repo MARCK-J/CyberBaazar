@@ -26,7 +26,6 @@ export default {
 }
 
 .container-fluid {
-  background-color: rgb(94, 94, 94);
   margin-top: -15px;
 }
 </style>

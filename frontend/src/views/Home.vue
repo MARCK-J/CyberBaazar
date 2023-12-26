@@ -17,7 +17,6 @@ export default {
 
 <style lang="css" scoped>
 .container {
-  background-color: rgb(94, 94, 94);
   display: flex;
   max-width: inherit;
   height: 100vh; /* Ocupa todo el alto de la ventana */ /* Centra el contenido verticalmente */
